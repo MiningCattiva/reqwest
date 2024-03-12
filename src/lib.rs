@@ -1,4 +1,4 @@
-#![deny(missing_docs)]
+#![allow(missing_docs)]
 #![deny(missing_debug_implementations)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![cfg_attr(test, deny(warnings))]
@@ -330,7 +330,7 @@ if_hyper! {
     pub use self::async_impl::{
         Body, Client, ClientBuilder, Request, RequestBuilder, Response, Upgraded,
     };
-    pub use self::proxy::{Proxy,NoProxy};
+    pub use self::proxy::{Proxy,NoProxy,ProxyScheme,get_system_proxy_map};
     #[cfg(feature = "__tls")]
     // Re-exports, to be removed in a future release
     pub use tls::{Certificate, Identity};

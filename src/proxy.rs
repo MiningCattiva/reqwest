@@ -1,3 +1,5 @@
+//! Proxy
+
 use std::fmt;
 #[cfg(feature = "socks")]
 use std::net::SocketAddr;
@@ -187,6 +189,12 @@ impl IntoProxyScheme for ProxyScheme {
     fn into_proxy_scheme(self) -> crate::Result<ProxyScheme> {
         Ok(self)
     }
+}
+
+pub fn get_system_proxy_map() -> SystemProxyMap {
+    get_sys_proxies(
+        get_from_platform()
+    )
 }
 
 impl Proxy {
